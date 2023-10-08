@@ -36,7 +36,7 @@ class _ShareLocationScreenState extends State<ShareLocationScreen> {
               child: QrImageView(data:  googleMapsUrl,
 ),
              ),
-            Text('Store Name: ${store.name}'),
+            Text('${store.name}'),
             Text('Latitude: ${store.latitude}'),
             Text('Longitude: ${store.longitude}'),
             // You can add more information here as needed
