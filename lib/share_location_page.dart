@@ -33,13 +33,11 @@ class _ShareLocationScreenState extends State<ShareLocationScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
              Center(
-              child: QrImageView(data:  googleMapsUrl,
-),
+              child: QrImageView(data:  googleMapsUrl,),
              ),
             Text('${store.name}'),
             Text('Latitude: ${store.latitude}'),
             Text('Longitude: ${store.longitude}'),
-            // You can add more information here as needed
           ],
         ),
       ),

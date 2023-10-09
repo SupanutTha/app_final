@@ -1,5 +1,5 @@
 # KinoKuniya store in Thailand
-
+https://github.com/SupanutTha/app_final/tree/master
 project for final exam
 
 ## This app only work on ios simulator only!!!!!!!!!!

@@ -1,3 +1,7 @@
+// please read readme.md file
+// google api key
+// AIzaSyAhy12d1U_qi1vY5CAp40hTwaNS9cEHnro
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'homePage.dart';
@@ -32,7 +36,6 @@ class _MyAppState extends State<MyApp>{
       supportedLocales: [
         const Locale('en', 'US'), // English
         const Locale('th', 'TH'), // Thai
-        // Add more supported locales as needed
       ],
       locale: _locale, // Set the current locale
       theme: ThemeData(
