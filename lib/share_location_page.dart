@@ -24,7 +24,7 @@ class _ShareLocationScreenState extends State<ShareLocationScreen> {
 
     final store = widget.store!;
     final googleMapsUrl = 'https://maps.google.com/?q=${store.latitude},${store.longitude}';
-
+    // generate qr code to use with google map
     return Scaffold(
       appBar: AppBar(title: Text(store.name), actions: []),
       body: Padding(

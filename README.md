@@ -1,16 +1,25 @@
-# final_3
+# KinoKuniya store in Thailand
 
-A new Flutter project.
+project for final exam
+
+## This app only work on ios simulator only!!!!!!!!!!
+if run with macos the plugin will not support.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Objective of this project is using google map to pin all store branch in Thailand.
 
-A few resources to get you started if this is your first Flutter project:
+## API
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+for kinonuniya store location
+I use mockAPI to create api json 
+https://mocki.io/v1/b8ba2dfb-d890-4229-87e7-8cbb812939a0
+it contain store name , lati , long of all branch
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Google Map api for IOS only
+
+get current location api use time a lot and most of time in return Null. So, i set the defualt location to victory monument.
+
+## QR code
+
+it will navigate you through google map to that longitude and latitude.

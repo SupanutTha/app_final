@@ -1,5 +1,4 @@
 import 'dart:async';
-
 import 'package:final_3/restaurant_model.dart';
 import 'package:final_3/share_location_page.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Locale _currentLocale = Locale('en', 'US');
+  Locale _currentLocale = Locale('en', 'US');  // default language
   void _changeLanguage(Locale newLocale) {
     // Call the changeLanguage callback to update the app's locale
     widget.changeLanguage(newLocale);
@@ -26,7 +25,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  double _zoomLevel = 13.0;
+  double _zoomLevel = 13.0; // defualt zoom level
   Completer<GoogleMapController> _controller = Completer();
   LocationData? currentLocation;
   List<Marker> markers = []; // List to store markers for bookstores
@@ -38,7 +37,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   Map<String, BookStore> bookstoreMap = {};
-  Future<void> _loadBookstoreMarkers() async {
+  Future<void> _loadBookstoreMarkers() async { //fetch kinokuniya location from api and store in marker 
     // Fetch Kinokuniya data and create markers
     final bookstoreData = await fetchKinokuniyaData();
     markers = bookstoreData.map((store) {
@@ -63,7 +62,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<void> _goToLocation(BookStore store) async {
+  Future<void> _goToLocation(BookStore store) async {  //go to location of each book store when click in drawer
     final GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(
       CameraPosition(
@@ -75,7 +74,7 @@ class _HomePageState extends State<HomePage> {
         .pop(); // Close the drawer after navigating to the location
   }
 
-  Future<LocationData?> getCurrentLocation() async {
+  Future<LocationData?> getCurrentLocation() async { //get current location but take time to longg
     Location location = Location();
     print('location : $location');
     try {
@@ -96,13 +95,13 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future<LocationData?> getCurrentLocationWithTimeout() async {
+  Future<LocationData?> getCurrentLocationWithTimeout() async { // get current location fix limit time out. if time out gp to defult location
     Location location = Location();
     try {
       return await Future.any([
         location.getLocation(),
         Future.delayed(
-            Duration(seconds: 3), () => null), // Timeout after 10 seconds
+            Duration(seconds: 5), () => null), // Timeout after 10 seconds
       ]);
     } on PlatformException catch (e) {
       if (e.code == 'PERMISSION_DENIED') {
@@ -112,7 +111,7 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-  Future _goToMe() async {
+  Future _goToMe() async { //go to current location if dont have go to victory monument
     final GoogleMapController controller = await _controller.future;
     try {
       print('Getting current location...');
@@ -175,8 +174,7 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+  static const TextStyle optionStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
@@ -298,6 +296,7 @@ class _HomePageState extends State<HomePage> {
             IconButton(
               icon: Icon(
                 Icons.language,
+                color: Colors.blue,
               ),
               onPressed: () {
                 // do something
